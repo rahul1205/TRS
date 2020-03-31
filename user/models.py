@@ -15,3 +15,8 @@ class AuthToken(models.Model):
         null=True,
         blank=True
     )
+    otp = models.CharField(
+        max_length=100,
+        null=True,
+        blank=True
+    )

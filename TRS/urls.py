@@ -19,5 +19,8 @@ from user import views as user_views
 
 
 urlpatterns = [
-    url('^login', user_views.UserLogin.as_view()),
+    url('^apiv1/login/', user_views.UserLogin.as_view()),
+    url('^apiv1/register/', user_views.UserRegister.as_view()),
+    url('^apiv1/login-final/', user_views.UserLoginFinal.as_view()),
+
 ]
