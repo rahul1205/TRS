@@ -82,8 +82,9 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'TRS',
         'USER': 'root',
-        'PASSWORD': 'root',
-        'HOST': '',
+        'PASSWORD': 'password',
+        'HOST': 'tourism-database.ckl1wer2rqyx.us-east-1.rds.amazonaws.com',
+        'PORT': '3306'
     }
 }
 
