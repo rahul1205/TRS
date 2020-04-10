@@ -8,11 +8,11 @@ from user.models import AuthToken
 from user.serializer import UserLoginSerializer, UserRegisterSerializer, UserPublicSerialzer
 from django.core.mail import send_mail
 
-def smtp_gmail(token=None):
+def smtp_gmail(email, token=None):
     username = "noreply.ticketreservations@gmail.com"
     password = "Password12!"
     smtp_server = "smtp.gmail.com:587"
-    email_to = "rahul1205@mailinator.com"
+    email_to = email
     email_body = "The OTP for login is " + token
     email_from = "CSCI5409"
 
@@ -57,7 +57,7 @@ class UserLogin(generics.GenericAPIView):
                 token_obj.token = str(uuid.uuid4())
             token_obj.otp = str(random.randint(1000, 9999))
             token_obj.save()
-            smtp_gmail(token=token_obj.otp)
+            smtp_gmail(user.email, token=token_obj.otp)
             return response.Response(
                 status=status.HTTP_200_OK)
         return response.Response(

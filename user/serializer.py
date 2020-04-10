@@ -29,10 +29,10 @@ class UserLoginSerializer(serializers.Serializer):
             user = User.objects.get(username=username)
         except:
             raise serializers.ValidationError(
-                "Validation Error User doesn't exist")
+                "Validation Error: User doesn't exist")
         if not user.check_password(password):
             raise serializers.ValidationError(
-                "Validation Error User doesn't exist")
+                "Validation Error: User doesn't exist")
         # print (data, "SERIALZER!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
         return data
 
