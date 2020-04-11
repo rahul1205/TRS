@@ -48,4 +48,4 @@ class BookingSerializer(serializers.Serializer):
 class BookingPublicSerializer(serializers.ModelSerializer):
     class Meta:
         model = Booking
-        fields = '__all__'
+        fields = ['id', 'number_of_passengers', 'bus_route', 'destination', 'amount_paid', 'user']
